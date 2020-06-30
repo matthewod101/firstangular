@@ -1,13 +1,19 @@
 <div class="form-group">
   <label for="item">Item</label>
   <input class="form-control"
+         #thingy
          name="item">
-  <button class="btn btn-primary">Add Item</button>
+  <button class="btn btn-primary"
+          (click)="addItem(thingy)">Add Item</button>
 </div>
 <section>
   <ul class="list-unstyled">
     <li *ngFor="let item of items"
-        class="alert alert-info"><span>{{item.description}}</span></li>
+        class="alert alert-info"><span [ngClass]="{'purchased': item.purchased}">{{item.description}}</span>
+      &nbsp;<button *ngIf="!item.purchased"
+              (click)="markPurchased(item)"
+              class="btn btn-sm btn-danger">Got It!</button>
+    </li>
 
   </ul>
 </section>
