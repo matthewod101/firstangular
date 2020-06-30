@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="item">Item</label>
+  <input class="form-control"
+         name="item">
+  <button class="btn btn-primary">Add Item</button>
+</div>
+<section>
+  <ul class="list-unstyled">
+    <li *ngFor="let item of items"
+        class="alert alert-info"><span>{{item.description}}</span></li>
+
+  </ul>
+</section>

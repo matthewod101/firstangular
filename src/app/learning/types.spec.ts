@@ -1,4 +1,5 @@
 import { NgSwitchDefault } from '@angular/common';
+import { Employee } from './hr/employee';
 
 describe('writing jasmine specs', () => {
   it('is easy', () => {
@@ -46,7 +47,7 @@ describe('variables and stuff', () => {
     const song = 0b10101; // binary base 2
     const permission = 0o344; // actual base 8.
 
-    // const someArray = { dog, cat, 99};
+    const someArray = ['dog', 'cat', 99];
     const movie = {
       title: 'Thor Ragnorak',
       director: 'Taika Waititi',
@@ -169,6 +170,17 @@ describe('interfaces and duck typing', () => {
         message: 'Call me'
       };
       logIt(phoneCall);
+    });
+  });
+  describe('using modules', () => {
+    it('creating an instance of a class', () => {
+      const emp = new Employee();
+      emp.firstName = 'Robert';
+      emp.lastName = 'Smith';
+      emp.department = 'Singer';
+
+      const info = emp.getInfo();
+      expect(info).toBe('employee Robert Smith is a Singer');
     });
   });
 });
