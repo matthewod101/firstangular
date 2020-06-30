@@ -6,17 +6,24 @@ import { AppComponent } from './app.component';
 import { ShoppingComponent } from './components/shopping/shopping.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavComponent } from './components/nav/nav.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './reducers';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShoppingComponent,
     DashboardComponent,
-    NavComponent
+    NavComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]
