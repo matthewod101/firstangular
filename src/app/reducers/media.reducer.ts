@@ -1,6 +1,7 @@
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, Action } from '@ngrx/store';
+import { createReducer, Action, on } from '@ngrx/store';
 import { KindType } from '../models';
+import * as actions from '../actions/media.actions';
 
 export interface MediaEntity {
   id: string;
@@ -27,7 +28,8 @@ const initialState: MediaState = {
 };
 
 const reducerFunction = createReducer(
-  initialState
+  initialState,
+  on(actions.mediaAdded, (s, a) => adapter.addOne(a.payload, s))
 );
 
 export function reducer(state: MediaState = initialState, action: Action) {

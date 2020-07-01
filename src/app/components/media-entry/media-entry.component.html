@@ -1,1 +1,37 @@
-<p>media-entry works!</p>
+<!-- <pre>{{form.value | json}}</pre> this is a debugger of sorts in the browser -->
+<form (ngSubmit)="submit(focusMe)"
+      [formGroup]="form">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input class="form-control"
+           #focusMe
+           formControlName="title"
+           name="title">
+    <div class="alert alert-danger"
+         *ngIf="title.invalid && (title.dirty || title.touched)">
+      <p *ngIf="title.errors.required">This is Required.</p>
+      <p *ngIf="title.errors.minlength">Too Short! It has to be {{title.errors.minlength.requiredLength}} and you only
+        have {{title.errors.minlength.actualLength}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="recommendedBy">Recommended By</label>
+    <input class="form-control"
+           formControlName="recommendedBy"
+           name="recommendedBy">
+  </div>
+  <div class="form-group">
+    <label for="kind">Kind of Media</label>
+    <select name="kind"
+            formControlName="kind"
+            class="form-control">
+      <option value=""></option>
+      <option value="show">Show</option>
+      <option value="game">Game</option>
+    </select>
+  </div>
+  <input type="submit"
+         [disabled]="form.invalid"
+         value="Add Media"
+         class="btn btn-primary">
+</form>
