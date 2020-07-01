@@ -1,4 +1,4 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { KindType } from '../models';
 import { MediaEntity } from '../reducers/media.reducer';
 import * as actions from '../actions/media.actions';
@@ -16,5 +16,20 @@ export const mediaAdded = createAction(
       dateConsumed: null,
       id: 'T' + id++
     } as MediaEntity
+  })
+);
+
+export const mediaRemoved = createAction(
+  '[media] media removed',
+  props<{ payload: MediaEntity }>()
+);
+
+export const mediaConsumed = createAction(
+  '[media] media consumed',
+  ({ media }: { media: MediaEntity }) => ({
+    payload: {
+      media,
+      when: new Date() // Impure!
+    }
   })
 );

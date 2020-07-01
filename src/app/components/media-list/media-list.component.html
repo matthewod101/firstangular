@@ -4,12 +4,14 @@
     <h5 class="card-title">{{ item.title }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">Is a {{ item.kind }}</h6>
     <p class="card-text">{{ item.recommendedBy}} said I should consume this.</p>
-    <a href="#"
-       *ngIf="!item.consumed"
-       class="card-link">Mark As Consumed</a>
+    <button *ngIf="!item.consumed"
+            (click)="consume(item)"
+            class="btn btn-link">Mark As Consumed</button>
     <p *ngIf="item.consumed"
        class="text-muted">You consumed this on {{ item.dateConsumed | date}}</p>
-    <a href="#"
-       class="card-link">Remove from List (delete)</a>
+    <div>
+      <button class="btn btn-link"
+              (click)="remove(item)">Remove from List (delete)</button>
+    </div>
   </div>
 </div>
