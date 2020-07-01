@@ -1,0 +1,15 @@
+<div class="card"
+     *ngFor="let item of list">
+  <div class="card-body">
+    <h5 class="card-title">{{ item.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Is a {{ item.kind }}</h6>
+    <p class="card-text">{{ item.recommendedBy}} said I should consume this.</p>
+    <a href="#"
+       *ngIf="!item.consumed"
+       class="card-link">Mark As Consumed</a>
+    <p *ngIf="item.consumed"
+       class="text-muted">You consumed this on {{ item.dateConsumed | date}}</p>
+    <a href="#"
+       class="card-link">Remove from List (delete)</a>
+  </div>
+</div>
