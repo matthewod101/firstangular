@@ -14,6 +14,7 @@ import { MediaContainerComponent } from './components/media-container/media-cont
 import { MediaEntryComponent } from './components/media-entry/media-entry.component';
 import { MediaListComponent } from './components/media-list/media-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,6 @@
 <p>dashboard works!</p>
+<ul>
+  <li *ngFor="let item of data$ | async">
+    <p>{{item.title}}</p>
+  </li>
+</ul>
