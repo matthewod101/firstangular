@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { selectHasErrors, AppState, selectErrorMessage } from 'src/app/reducers';
+import { clearError } from 'src/app/actions/app.actions';
 
 @Component({
   selector: 'app-error-display',
@@ -24,4 +25,7 @@ export class ErrorDisplayComponent implements OnInit {
     );
   }
 
+  clearError(): void {
+    this.store.dispatch(clearError());
+  }
 }

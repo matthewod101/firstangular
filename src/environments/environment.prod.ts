@@ -1,3 +1,5 @@
+import { Environment } from '.';
 export const environment = {
-  production: true
+  production: true,
+  mediaUrl: 'http://api.progressive/v1/media'
 };
