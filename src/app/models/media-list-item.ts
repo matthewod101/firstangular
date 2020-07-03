@@ -5,6 +5,7 @@ export interface MediaListItem {
   recommendedBy: string;
   consumed: boolean;
   dateConsumed: null | string;
+  isTemporary: boolean;
 }
 
 export type KindType = 'show' | 'game';

@@ -19,6 +19,16 @@ export const mediaAdded = createAction(
   })
 );
 
+export const mediaAddedSuccess = createAction(
+  '[media] media added successfully',
+  props<{ payload: MediaEntity, oldId: string }>()
+);
+
+export const mediaAddedFailure = createAction(
+  '[media] media added failure',
+  props<{ payload: MediaEntity, message: string }>()
+);
+
 export const mediaRemoved = createAction(
   '[media] media removed',
   props<{ payload: MediaEntity }>()
@@ -32,4 +42,9 @@ export const mediaConsumed = createAction(
       when: new Date() // Impure!
     }
   })
+);
+
+export const mediaLoaded = createAction(
+  '[media] media loaded',
+  props<{ payload: MediaEntity[] }>()
 );

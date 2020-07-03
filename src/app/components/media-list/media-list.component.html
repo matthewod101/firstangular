@@ -1,17 +1,21 @@
 <div class="card"
      *ngFor="let item of list">
   <div class="card-body">
-    <h5 class="card-title">{{ item.title }}</h5>
+    <h5 class="card-title">{{ item.title }} <span *ngIf="item.isTemporary">(saving...)</span></h5>
     <h6 class="card-subtitle mb-2 text-muted">Is a {{ item.kind }}</h6>
     <p class="card-text">{{ item.recommendedBy}} said I should consume this.</p>
-    <button *ngIf="!item.consumed"
-            (click)="consume(item)"
-            class="btn btn-link">Mark As Consumed</button>
-    <p *ngIf="item.consumed"
-       class="text-muted">You consumed this on {{ item.dateConsumed | date}}</p>
-    <div>
-      <button class="btn btn-link"
-              (click)="remove(item)">Remove from List (delete)</button>
+    <div *ngIf="item.isTemporary == false">
+      <div>
+        <button *ngIf="!item.consumed"
+                (click)="consume(item)"
+                class="btn btn-link">Mark As Consumed</button>
+      </div>
+      <p *ngIf="item.consumed"
+         class="text-muted">You consumed this on {{ item.dateConsumed | date}}</p>
+      <div>
+        <button class="btn btn-link"
+                (click)="remove(item)">Remove from List (delete)</button>
+      </div>
     </div>
   </div>
 </div>
